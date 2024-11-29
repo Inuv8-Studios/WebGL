@@ -120,26 +120,27 @@
 
     window.Telegram.WebApp.ready();
     console.log("Telegram connected");
-    
+
     // Initialize Telegram and send the data to Unity
     window.onload = () => {
-      createUnityInstance(canvas, config, (progress) => {
-        progressBarFull.style.width = 100 * progress + "%";
-      }).then((unityInstance) => {
-        // Pass Telegram data to Unity
-        const initData = window.Telegram.WebApp.initData || "";
-        const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
+      createUnityInstance(canvas, config, (progress) => { })
+        .then((unityInstance) => {
+          console.log("Telegram Init");
+          // Pass Telegram data to Unity
+          const initData = window.Telegram.WebApp.initData || "";
+          const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
 
-        console.log("Init Data", window.Telegram.WebApp.initData);
-        console.log("InitDataUnsafe", window.Telegram.WebApp.initDataUnsafe);
+          console.log("Init Data", window.Telegram.WebApp.initData);
+          console.log("InitDataUnsafe", window.Telegram.WebApp.initDataUnsafe);
 
-        console.log("Telegram Init");
-        // Send init data to Unity
-        unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
-      });
+          console.log("Telegram Init");
+          // Send init data to Unity
+          unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
+        });
     };
 
     document.body.appendChild(script);
   </script>
 </body>
+
 </html>
