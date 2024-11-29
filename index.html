@@ -12,27 +12,6 @@
 </head>
 
 <body>
-  <script>
-    // Ensure Telegram Web App is ready
-    window.Telegram.WebApp.ready();
-
-    console.log("Telegram connected");
-
-    // Initialize Telegram and send the data to Unity
-    window.onload = initializeTelegram;
-
-    // Pass Telegram data to Unity
-    function initializeTelegram() {
-      const initData = window.Telegram.WebApp.initData || "";
-      const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
-
-      console.log("Init Data", window.Telegram.WebApp.initData);
-      console.log("InitDataUnsafe", window.Telegram.WebApp.initDataUnsafe);
-
-      console.log("Telegram Init");
-      SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
-    }
-  </script>
   <div id="unity-container" class="unity-desktop">
     <canvas id="unity-canvas" width=1200 height=540 tabindex="-1"></canvas>
     <div id="unity-loading-bar">
@@ -131,6 +110,28 @@
       createUnityInstance(canvas, config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
+        window.Telegram.WebApp.ready();
+
+        console.log("Telegram connected");
+
+        // Initialize Telegram and send the data to Unity
+        window.onload = initializeTelegram;
+
+        // Pass Telegram data to Unity
+        function initializeTelegram() {
+          const initData = window.Telegram.WebApp.initData || "";
+          const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
+
+          console.log("Init Data", window.Telegram.WebApp.initData);
+          console.log("InitDataUnsafe", window.Telegram.WebApp.initDataUnsafe);
+
+          console.log("Telegram Init");
+
+          // Send init data to Unity
+          if (typeof unityInstance !== "undefined" && unityInstance) {
+            unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
+          }
+        }
         loadingBar.style.display = "none";
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
@@ -144,4 +145,5 @@
 
   </script>
 </body>
+
 </html>
