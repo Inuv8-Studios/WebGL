@@ -25,10 +25,10 @@
       const initData = window.Telegram.WebApp.initData || "";
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
 
-      //var iniDat = (initData != null) ? initData : initDataUnsafe;
+      var iniDat = (initData != null) ? initData : initDataUnsafe;
 
-      console.log("Init Data", window.Telegram.WebApp.initData);
-      console.log("InitDataUnsafe", window.Telegram.WebApp.initDataUnsafe);
+      console.log("Init Data", stringify(window.Telegram.WebApp.initData));
+      console.log("InitDataUnsafe", stringify(window.Telegram.WebApp.initDataUnsafe));
 
       console.log("Telegram Init");
 
