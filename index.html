@@ -128,9 +128,7 @@
           console.log("Telegram Init");
 
           // Send init data to Unity
-          if (typeof unityInstance !== "undefined" && unityInstance) {
-            unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
-          }
+          unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
         }
         loadingBar.style.display = "none";
         fullscreenButton.onclick = () => {
