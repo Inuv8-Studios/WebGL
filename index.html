@@ -130,7 +130,9 @@
           // Send init data to Unity
           unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
         }
-        loadingBar.style.display = "none";
+
+        console.log("message sent");
+
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
         };
@@ -140,8 +142,6 @@
     };
 
     document.body.appendChild(script);
-
   </script>
 </body>
-
 </html>
