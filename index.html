@@ -25,6 +25,8 @@
         const initData = window.Telegram.WebApp.initData || "";
         const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
         
+        console.log("Telegram Init");
+
         // Send init data to Unity
         if (typeof unityInstance !== "undefined" && unityInstance) {
             unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
