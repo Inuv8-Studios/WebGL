@@ -135,7 +135,7 @@
 
           console.log("Telegram Init");
           // Send init data to Unity
-          unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initDataUnsafe));
+          unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", JSON.stringify(initData));
         });
     };
 
