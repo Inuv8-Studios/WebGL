@@ -38,16 +38,8 @@
       // Optional: Parse initData for verification (e.g., server-side checks) // 
       const initDataHash = window.Telegram.WebApp.initDataUnsafe; // 
       console.log('Init Data Unsafe:', initDataHash);
-
-      // Initialize Telegram and send the data to Unity
-      window.onload = () => {
-        createUnityInstance(canvas, config, (progress) => { })
-          .then((unityInstance) => {
-            console.log("Telegram Init");
-            // Send init data to Unity
-            unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", initData);
-          });
-      };
+      unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", initData);
+      console.log("Telegram Init");
     }
     else { console.error('Telegram WebApp is not available.'); } 
   </script>
