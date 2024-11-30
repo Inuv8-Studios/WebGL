@@ -38,7 +38,7 @@
       // Optional: Parse initData for verification (e.g., server-side checks) // 
       const initDataHash = window.Telegram.WebApp.initDataUnsafe;
       console.log('Init Data Unsafe:', initDataHash);
-      unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", initData);
+      SendMessage("TelegramHandler", "OnTelegramInit", initData);
       console.log("Telegram Init");
     }
     else { console.error('Telegram WebApp is not available.'); } 
