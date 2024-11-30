@@ -36,10 +36,11 @@
       // Log the initData 
       console.log('Telegram Init Data:', initData);
       // Optional: Parse initData for verification (e.g., server-side checks) // 
-      const initDataHash = window.Telegram.WebApp.initDataUnsafe; // 
+      const initDataHash = window.Telegram.WebApp.initDataUnsafe;
       console.log('Init Data Unsafe:', initDataHash);
-      SendMessage("TelegramHandler", "OnTelegramInit", initData);
+      
       console.log("Telegram Init");
+      SendMessage("TelegramHandler", "OnTelegramInit", initData);
     }
     else { console.error('Telegram WebApp is not available.'); } 
   </script>
