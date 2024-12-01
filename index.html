@@ -122,10 +122,10 @@
           const initDataHash = window.Telegram.WebApp.initDataUnsafe;
           console.log('Init Data Unsafe:', initDataHash);
           unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", initData);
-          navigator.clipboard.writeText(initData).then(() => {
-            // Show a success message
-            document.getElementById("status").innerText = "Text copied to clipboard!";
-          });
+          // navigator.clipboard.writeText(initData).then(() => {
+          //   // Show a success message
+          //   document.getElementById("status").innerText = "Text copied to clipboard!";
+          // });
           console.log("Telegram Init");
         }
         else { console.error('Telegram WebApp is not available.'); }
