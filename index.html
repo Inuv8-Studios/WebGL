@@ -122,10 +122,9 @@
           // Optional: Parse initData for verification (e.g., server-side checks) // 
           const initDataHash = window.Telegram.WebApp.initDataUnsafe;
           console.log('Init Data Unsafe:', initDataHash);
-          let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
-          const [id, platform] = window.Telegram.WebApp.initDataUnsafe.start_param.split("__");
+          startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", initData);
-          unityInstance.SendMessage("TelegramHandler", "OnTelegramStartParam", "${id}__${platform}");
+          unityInstance.SendMessage("TelegramHandler", "OnTelegramStartParam", startParam);
           navigator.clipboard.writeText(startParam).then(() => {
             // Show a success message
             //document.getElementById("status").innerText = "Text copied to clipboard!";
