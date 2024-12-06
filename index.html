@@ -124,8 +124,8 @@
           console.log('Init Data Unsafe:', initDataHash);
           startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           unityInstance.SendMessage("TelegramHandler", "OnTelegramInit", initData);
-          unityInstance.SendMessage("TelegramHandler", "OnTelegramStartParam", startParam);
-          navigator.clipboard.writeText(startParam).then(() => {
+          if (start_param != undefined) { unityInstance.SendMessage("TelegramHandler", "OnTelegramStartParam", startParam); }
+          navigator.clipboard.writeText(initData).then(() => {
             // Show a success message
             //document.getElementById("status").innerText = "Text copied to clipboard!";
           });
