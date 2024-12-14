@@ -132,10 +132,7 @@
           console.log("Telegram Init");
           console.log("Start param: ", startParam);
         }
-        else {
-          unityInstance.SendMessage("TelegramHandler", "OnWebInit", "isOnWeb");
-          console.error('Telegram WebApp is not available.');
-        }
+        else { console.error('Telegram WebApp is not available.'); }
 
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
